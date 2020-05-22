@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.6.3/fabric.min.js"></script>
+    <title>Document</title>
+    <style>
+      .svgButton {
+        margin-left: 20px;
+        text-decoration: none;
+        background: #03adfc;
+        font-weight: bold;
+        height: 28px;
+        width: 140px;
+        border-radius: 8px;
+        text-align: center;
+        padding: 10px 10px;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="display: flex;">
+      <canvas
+        id="c"
+        style="border: 2px solid #000;"
+        width="1200"
+        height="1600"
+      ></canvas>
+      <div
+        style="
+          padding: 30px 0px;
+          min-width: 300px;
+          background: rgba(0, 0, 0, 0.7);
+        "
+      >
+        <div>
+          <a class="svgButton" href="" id="svg">Salvar SVG</a>
+          <pre
+            style="
+              color: #fff;
+              font-size: 22px;
+              height: 1200px;
+              width: 600px;
+              background: rgba(0, 0, 0, 0.7);
+            "
+            id="info"
+          ></pre>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Do some initializing stuff
+      fabric.Object.prototype.set({
+        transparentCorners: true,
+        cornerColor: "rgba(102,153,255,1)",
+        cornerSize: 6,
+        padding: 5,
+      });
+
+      // initialize fabric canvas and assign to global windows object for debug
+      var canvas = (window._canvas = new fabric.Canvas("c"));
+
+      canvas.on({
+        "object:selected": function (e) {
+          e.target.opacity = 0.5;
+          //find which object is selected
+          console.log(e.target);
+          console.log(e.target.get("type"));
+          e.target.get;
+          //How to get targeted element attribute value
+          //??????????????
+        },
+        "object:modified": function (e) {
+          e.target.opacity = 1;
+          info = document.getElementById("info").textContent = JSON.stringify(
+            e.target,
+            undefined,
+            2
+          );
+
+          console.log(e);
+        },
+      });
+
+      canvas.add(
+        new fabric.Rect({
+          width: 1100,
+          height: 40,
+          left: 40,
+          top: 160.1,
+
+          strokeWidth: 2,
+          fill: "#b5bec9",
+          stroke: "#000",
+        })
+      );
+
+      canvas.add(
+        new fabric.Text(
+          "Requerimento para saltarmos o ano de 2020 direto para 2021",
+          {
+            left: 188.7,
+            top: 165.99,
+            width: 200,
+            textAlign: "center",
+            fontSize: 28,
+            fontFamily:
+              "Helvetica Nue, Helvetica, Sans-Serif, Arial, Trebuchet MS",
+            fontWeight: "bold",
+          }
+        )
+      );
+
+      canvas.add(
+        new fabric.Rect({
+          width: 1100,
+          height: 170,
+          left: 40,
+          top: 200,
+          strokeWidth: 2,
+          fill: "transparent",
+          stroke: "#000",
+        })
+      );
+
+      canvas.add(
+        new fabric.Line([140, 0, 1240, 0], {
+          left: 40,
+          top: 285,
+          strokeWidth: 2,
+          stroke: "000",
+        })
+      );
+
+      canvas.add(
+        new fabric.Line([300, 300, 300, 129], {
+          left: 800,
+          top: 200,
+          strokeWidth: 2,
+          stroke: "000",
+        })
+      );
+
+      canvas.add(
+        new fabric.Text("Program:", {
+          left: 53,
+          top: 212,
+          width: 200,
+          textAlign: "center",
+          fontSize: 22,
+          fontFamily:
+            "Helvetica Nue, Helvetica, Sans-Serif, Arial, Trebuchet MS",
+          fontWeight: "bold",
+        })
+      );
+
+      canvas.add(
+        new fabric.Text("Projeto para deletar ano de 2020:", {
+          left: 54.99,
+          top: 250.9,
+          width: 200,
+          textAlign: "center",
+          fontSize: 18,
+          fontFamily:
+            "Helvetica Nue, Helvetica, Sans-Serif, Arial, Trebuchet MS",
+        })
+      );
+
+      canvas.add(
+        new fabric.Text("Contato:", {
+          left: 58.98,
+          top: 297.79,
+          width: 200,
+          textAlign: "center",
+          fontSize: 22,
+          fontFamily:
+            "Helvetica Nue, Helvetica, Sans-Serif, Arial, Trebuchet MS",
+          fontWeight: "bold",
+        })
+      );
+
+      canvas.add(
+        new fabric.Text("rodgomesc@gmail.com", {
+          left: 56.98,
+          top: 330.7,
+          width: 200,
+          textAlign: "center",
+          fontSize: 18,
+          fontFamily:
+            "Helvetica Nue, Helvetica, Sans-Serif, Arial, Trebuchet MS",
+        })
+      );
+
+      canvas.add(
+        new fabric.Text("Departamento:", {
+          left: 814.46,
+          top: 213,
+          width: 200,
+          textAlign: "center",
+          fontSize: 22,
+          fontFamily:
+            "Helvetica Nue, Helvetica, Sans-Serif, Arial, Trebuchet MS",
+          fontWeight: "bold",
+        })
+      );
+
+      canvas.add(
+        new fabric.Text("dept dos chuck norris anônimos", {
+          left: 814.46,
+          top: 250.89,
+          width: 200,
+          textAlign: "center",
+          fontSize: 18,
+          fontFamily:
+            "Helvetica Nue, Helvetica, Sans-Serif, Arial, Trebuchet MS",
+        })
+      );
+
+      canvas.add(
+        new fabric.Rect({
+          width: 1100,
+          height: 170,
+          left: 40,
+          top: 425.44,
+          strokeWidth: 2,
+          fill: "transparent",
+          stroke: "#000",
+        })
+      );
+
+      canvas.add(
+        new fabric.Text(
+          "Mussum Ipsum, cacilds vidis litro abertis. Per aumento de  cachacis, eu reclamis. Aenean aliquam molestie leo, vitae iaculis nisl.\n In elementis mé pra quem é amistosis quis leo. Sapien in monti palavris qui num significa nadis i pareci latim.  @gmail.com",
+          {
+            left: 80.9,
+            top: 490.3,
+            width: 200,
+            textAlign: "center",
+            fontSize: 18,
+            fontFamily:
+              "Helvetica Nue, Helvetica, Sans-Serif, Arial, Trebuchet MS",
+          }
+        )
+      );
+      fabric.Image.fromURL(
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Daifuku_company_logo.svg/1280px-Daifuku_company_logo.svg.png",
+        function (myImg) {
+          //i create an extra var for to change some image properties
+          var img1 = myImg.set({
+            left: 450,
+            top: 20,
+          });
+          img1.scaleToWidth(300, false);
+
+          canvas.add(img1);
+        }
+      );
+
+      function download(text, name, type) {
+        var a = document.getElementById("svg");
+        var file = new Blob([text], { type: type });
+        a.href = URL.createObjectURL(file);
+        a.download = name;
+      }
+
+      button = document.getElementById("svg");
+      button.onclick = () => {
+        var svgparsed = canvas.toSVG({
+          suppressPreamble: true,
+        });
+        download(svgparsed, "relatorio.xml", "text/plain");
+      };
+    </script>
+  </body>
+</html>
